@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>JaroknGamesCounter</title>
+
+<script src="javascript/prototype.js" type="text/javascript"></script>
+<script src="javascript/scriptaculous.js" type="text/javascript"></script>
+
+<style type="text/css">
+label {
+font-family: Arial, Verdana;
+text-shadow: 2px 2px 2px #ccc;
+text-align: left;
+font-size: 13px;
+}
+select {background: white; border: 1px solid #DDD; border-radius: 5px; box-shadow: 0 0 5px #DDD inset; color: #666;float: left; padding: 5px 10px; outline: none;}
+button.amibutton {  background: #e3e3e3;  border: 1px solid #bbb;  border-radius: 3px; -webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;  box-shadow: inset 0 0 1px 1px #f6f6f6; color: #333;  font: bold 12px/1 'helvetica neue', helvetica, arial, sans-serif; padding: 8px 8px 9px;  text-align: left;  text-shadow: 0 1px 0 #fff;  width: 150px; }
+button.amibutton:hover {    background: #d9d9d9;    -webkit-box-shadow: inset 0 0 1px 1px #eaeaea;    box-shadow: inset 0 0 1px 1px #eaeaea;    color: #222;    cursor: pointer; }
+button.amibutton:active {    background: #d0d0d0;    -webkit-box-shadow: inset 0 0 1px 1px #e3e3e3;    box-shadow: inset 0 0 1px 1px #e3e3e3;    color: #000; }
+input.amitextbox {background: white; border: 1px solid #DDD; border-radius: 5px; box-shadow: 0 0 5px #DDD inset; color: #666;float: left; padding: 5px 10px; outline: none; }
+body {
+background: url('img/pagebg.jpg') repeat;
+background-color: #FFFFFF;
+font-family: arial, verdana, sans-serif;
+font-size: 12px;
+}
+a {
+color: #cde2ff;
+font-weight: bold;
+font-size: 11px;
+}
+.window {
+background: #EEEEEE;
+position: absolute;
+padding: 0px;
+border: 0px solid #bbb;
+}
+.window p {
+margin: 3px;
+}
+.windowinner {
+padding: 7px;
+}
+.windowinner input {
+margin-top: 0px;
+}
+.window h1
+{
+padding: 6px;
+display: block;
+background-color: #CCCCCC;
+font-size: 13px;
+margin: 0px;
+color: #333;
+text-shadow: 0 1px 0 #fff;
+border-radius: 3px;
+-webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;
+box-shadow: inset 0 0 1px 1px #f6f6f6;
+}
+div#preload { display: none; }
+</style>
+
+<script type="text/javascript">
+
+var iscVWorkingText = "";
+var iscVCounter = 0;
+var iscVCounterDict = {};
+var iscV1 = 1;
+var iscV0 = "";
+var iscPenColor = "rgb(0,0,0)";
+var iscPenFont = "";
+var iscPenFontSize = 13;
+var iscPenFontAllignment = "Left";
+//EndOfGlobalVariables
+
+function init()
+{
+
+iscVCounterDict["0"] = "0";
+
+iscWindow1();
+//iscApp1Launched
+}
+
+Event.observe(window, 'load', init, false);
+
+function iscAppQuit3()
+{
+//iscAppQuit3Done
+}
+
+
+function iscAdd5()
+{
+iscVCounter = iscVCounter + iscV1;
+iscConvertNumberToText9();
+//iscAdd5Done
+}
+
+
+function iscSubtract7()
+{
+iscVCounter = iscVCounter - iscV1;
+iscConvertNumberToText9();
+//iscSubtract7Done
+}
+
+
+function iscSetNumber8()
+{
+iscVCounter = 0;
+iscConvertNumberToText9();
+//iscSetNumber8Done
+}
+
+
+function iscDictSet12()
+{
+iscVCounterDict[iscV0] = iscV0;
+iscDictSave14();
+//iscDictSet12Done
+}
+
+
+function iscDictSave14()
+{
+var toJSON = JSON.stringify(iscVCounterDict);
+localStorage.iscVCounterDict = toJSON;
+//iscDictSave14Done
+}
+
+
+function iscConvertNumberToText13()
+{
+iscV0 = iscVCounter + '';
+iscDictSet12();
+//iscConvertNumberToText13Done
+}
+
+
+function iscDictLoad15()
+{
+var fromJSON = localStorage.iscVCounterDict;
+iscVCounterDict = JSON.parse(fromJSON);
+iscDictGet17();
+//iscDictLoad15Done
+}
+
+
+function iscDictGet17()
+{
+iscV0 = iscVCounterDict[iscV0];
+iscConvertTextToNumber18();
+//iscDictGet17Done
+}
+
+
+function iscConvertTextToNumber18()
+{
+iscVCounter = parseInt(iscV0);
+iscConvertNumberToText9();
+//iscConvertTextToNumber18Done
+}
+
+
+function iscConvertNumberToText9()
+{
+iscVWorkingText = iscVCounter + '';
+iscSetLabel11();
+//iscConvertNumberToText9Done
+}
+
+
+function iscSetLabel11()
+{
+if (document.innerText)
+{
+document.getElementById("iscWindow1lblCounter0").innerText=iscVWorkingText;
+}
+else
+{
+document.getElementById("iscWindow1lblCounter0").textContent=iscVWorkingText;
+}
+//iscSetLabel11Done
+}
+
+
+function iscWindow1btnAddClicked()
+{
+iscAdd5();
+//iscWindow1btnAddClicked
+}
+
+
+function iscWindow1btnSubtractClicked()
+{
+iscSubtract7();
+//iscWindow1btnSubtractClicked
+}
+
+
+function iscWindow1btnResetClicked()
+{
+iscSetNumber8();
+//iscWindow1btnResetClicked
+}
+
+
+function iscWindow1btnSaveClicked()
+{
+iscConvertNumberToText13();
+//iscWindow1btnSaveClicked
+}
+
+
+function iscWindow1btnLoadClicked()
+{
+iscDictLoad15();
+//iscWindow1btnLoadClicked
+}
+
+
+function iscWindow1()
+{
+document.getElementById("iscWindow1Window1").style.visibility = "visible";
+//iscWindow1Done
+//iscWindow1Opened
+}
+
+function iscWindow1Closed()
+{
+iscAppQuit3();
+//iscWindow1Closed
+}
+
+
+//EndOfFunctions
+
+</script>
+</head>
+<body style='background-color:#8F8F8F'>
+<div id="iscWindow1Window1" class="window" style="visibility:hidden;opacity:1;height:100%;width:100%;left:0px;top:0px;position:absolute">
+<div class="windowinner">
+<div id="iscWindow1lblTitle0div" style="opacity:1;position: absolute; left: 10px; top: 10px; width: 220px; height: 20px;">
+<label id="iscWindow1lblTitle0" style="color:rgb(0,0,0)">Jarokn Games Counter 1.0.0</label>
+</div>
+<div id="iscWindow1btnAdd0div" style="opacity:1;position: absolute; left: 80px; top: 80px;">
+<button class="amibutton" id="iscWindow1btnAdd0" onClick="iscWindow1btnAddClicked()" style="width:80px; height:40px">Add</button>
+</div>
+<div id="iscWindow1btnSubtract0div" style="opacity:1;position: absolute; left: 80px; top: 200px;">
+<button class="amibutton" id="iscWindow1btnSubtract0" onClick="iscWindow1btnSubtractClicked()" style="width:80px; height:40px">Subtract</button>
+</div>
+<div id="iscWindow1btnReset0div" style="opacity:1;position: absolute; left: 10px; top: 260px;">
+<button class="amibutton" id="iscWindow1btnReset0" onClick="iscWindow1btnResetClicked()" style="width:60px; height:40px">Reset</button>
+</div>
+<div id="iscWindow1btnSave0div" style="opacity:1;position: absolute; left: 90px; top: 260px;">
+<button class="amibutton" id="iscWindow1btnSave0" onClick="iscWindow1btnSaveClicked()" style="width:60px; height:40px">Save</button>
+</div>
+<div id="iscWindow1lblCounter0div" style="opacity:1;position: absolute; left: 80px; top: 150px; width: 80px; height: 20px;">
+<label id="iscWindow1lblCounter0" style="color:rgb(0,0,0)">0</label>
+</div>
+<div id="iscWindow1btnLoad2div" style="opacity:1;position: absolute; left: 170px; top: 262px;">
+<button class="amibutton" id="iscWindow1btnLoad2" onClick="iscWindow1btnLoadClicked()" style="width:60px; height:40px">Load</button>
+</div>
+</div>
+</div>
+
+<!-- EndOfHTML -->
+
+<div id="preload">
+</div>
+</body>
+</html>
